@@ -6,14 +6,14 @@ class NactiData:
     @classmethod
     def data_do_matice(cls, cesta):
         rows = []
+        row_num = 0
         with open(cesta, 'r') as file:
             csvreader = csv.reader(file)
             header = next(csvreader)
             for row in csvreader:
                 rows.append(row)
-        mat_out = Matice(rows)
-        mat_out.radky = list(range(1, mat_out.dimenze[0] + 1))
-        mat_out.sloupce = header
+                row_num += 1
+        mat_out = Matice(rows, list(range(1, row_num + 1)), header)
         return(mat_out)
 
 
