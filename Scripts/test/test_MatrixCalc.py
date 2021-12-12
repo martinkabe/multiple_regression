@@ -2,7 +2,7 @@
 Test module pro tridu MatrixCalc
 """
 import unittest
-from Scripts.MatrixCalc import MatrixCustom
+from MatrixCalc import MatrixCustom
 
 class TestMatrixCalc(unittest.TestCase):
     """
