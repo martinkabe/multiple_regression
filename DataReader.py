@@ -13,9 +13,8 @@ class NactiData:
             for row in csvreader:
                 rows.append(row)
                 row_num += 1
-        mat_out = Matice(rows, list(range(1, row_num + 1)), header)
-        return(mat_out)
+        return(Matice(rows, list(range(1, row_num + 1)), header))
 
 
-mat_test = NactiData.data_do_matice("Scripts/test/test1.csv")
-print("")
+# mat_test = NactiData.data_do_matice("Scripts/test/test1.csv")
+# print("")
