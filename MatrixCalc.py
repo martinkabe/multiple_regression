@@ -261,9 +261,10 @@ class MatrixCustom:
 
 
 
-m3 = Matice([[1,4,3], [4,5,6], [7,8,9]])
-m3_inverze = MatrixCustom.inverzni_matice(m3, 3)
-print("")
+# m3 = Matice([[1,4,3], [4,5,6], [7,8,9]])
+# m3_inverze = MatrixCustom.inverzni_matice(m3, 3)
+# print("")
+
 # det_m3 = MatrixCustom.determinant_rekurzivne(m3)
 # print("")
 
