@@ -1,7 +1,7 @@
 from flask import Flask
-from MatrixCalc import MatrixCustom as mc
 from DataReader import NactiData as nd
 from RegresniAnalyza import Regrese as ra
+
 
 app = Flask(__name__)
 app.run(debug=True)
@@ -11,14 +11,7 @@ app.run(debug=True)
 def home():
 
     data = nd.data_do_matice("Scripts/test/test1.csv")
-    y, X = ra.oddel_prediktory(data)
-
-    XT = mc.transpozice(X)
-    XTX = mc.vynasob(XT, X)
-    XTX_inv = mc.inverzni_matice(XTX, 2)
-
-    XTy = mc.vynasob(XT, y)
-    koeficienty = mc.vynasob(XTX_inv, XTy)    
+    koeficienty_nazvy, koeficienty, sd_koeficienty, testova_kriteria, phodnoty = ra.vypocti_odhady_koeficientu(data)
 
     some_var = [i for i in range(0,10)]
 

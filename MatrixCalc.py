@@ -1,3 +1,4 @@
+from typing import List
 from Matrix import Matice
 
 class MatrixCustom:
@@ -5,11 +6,11 @@ class MatrixCustom:
     @classmethod
     def vynasob(cls, mat1: Matice, mat2: Matice) -> Matice:
 
-        if isinstance(mat1.data, int) and any(isinstance(el, list) for el in mat2.data) or \
-           isinstance(mat2.data, int) and any(isinstance(el, list) for el in mat1.data):
+        if isinstance(mat1.data, float) and any(isinstance(el, list) for el in mat2.data) or \
+           isinstance(mat2.data, float) and any(isinstance(el, list) for el in mat1.data):
            # nasobeni matice konstantou
-           konst = mat1.data if isinstance(mat1.data, int) else mat2.data
-           mat = mat2 if isinstance(mat1.data, int) and any(isinstance(el, list) for el in mat2.data) else mat1
+           konst = mat1.data if isinstance(mat1.data, float) else mat2.data
+           mat = mat2 if isinstance(mat1.data, float) and any(isinstance(el, list) for el in mat2.data) else mat1
            mat_dim = mat.dimenze
            
            mat_vysledna = []
@@ -258,6 +259,16 @@ class MatrixCustom:
             return IM
         else:
             raise ArithmeticError("Inverzni matice je mimo desetinnou toleranci.")
+    
+    @classmethod
+    def extrakce_diagonaly(cls, mat: Matice) -> List:
+        mat_dim = mat.dimenze
+        diag = []
+        for r in range(mat_dim[0]):
+            for sl in range(mat_dim[1]):
+                if r==sl:
+                    diag.append(mat.data[r][sl])
+        return diag
 
 
 
