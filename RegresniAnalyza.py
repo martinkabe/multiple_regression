@@ -1,5 +1,5 @@
 import math
-from typing import List
+from typing import List, Tuple
 from Matrix import Matice
 from MatrixCalc import MatrixCustom as mc
 from scipy.stats import t
@@ -40,6 +40,8 @@ class Regrese:
         b = mc.vynasob(XTX_inv, XTy)
         b.sloupce = koef_nazvy = X.sloupce
 
+        rsquares = cls.r_squares(y, X, b)
+
         y1 = mc.transpozice(mc.odecti(y, mc.vynasob(X, b)))
         y2 = mc.odecti(y, mc.vynasob(X, b))
         dSigmaSq = Matice(mc.vynasob(y1, y2).data[0][0] / (X.dimenze[0] - b.dimenze[0]))
@@ -52,5 +54,32 @@ class Regrese:
 
         p_hodnoty = [2 * (1 - t.cdf(abs(tk), X.dimenze[0] - b.dimenze[0])) for tk in testova_kriteria]
 
-        return(koef_nazvy, b_odhady, sd_koeficienty, testova_kriteria, p_hodnoty)
+        return(koef_nazvy, b_odhady, sd_koeficienty, testova_kriteria, p_hodnoty, rsquares)
 
+    @classmethod
+    def r_squares(cls, y: Matice, X: Matice, b: Matice) -> Tuple:
+        ssr = sst = 0
+        n = X.dimenze[0]
+        k = b.dimenze[0]
+        y_list = [item for sublist in y.data for item in sublist]
+        predikce = mc.vynasob(X, b)
+        predikce_list = [item for sublist in predikce.data for item in sublist]
+        y_bar = cls.aritmeticky_prumer(y_list)
+
+        for i in range(n):
+            ssr += (y_list[i] - predikce_list[i])**2
+            sst += (y_list[i] - y_bar)**2
+        
+        r_square = 1 - (ssr/sst)
+        r_square_adj = 1 - (((1-r_square)*(n-1))/(n-k-1))
+
+        return({"RSquare": r_square, "AdjRSquare": r_square_adj})
+
+    
+    @classmethod
+    def aritmeticky_prumer(cls, x: List) -> float:
+        sum = 0
+        x_len = len(x)
+        for i in range(x_len):
+            sum += x[i]
+        return(sum/x_len)

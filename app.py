@@ -11,7 +11,7 @@ app.run(debug=True)
 def home():
 
     data = nd.data_do_matice("Scripts/test/test1.csv")
-    koeficienty_nazvy, koeficienty, sd_koeficienty, testova_kriteria, phodnoty = ra.vypocti_odhady_koeficientu(data)
+    koeficienty_nazvy, koeficienty, sd_koeficienty, testova_kriteria, phodnoty, rsquares = ra.vypocti_odhady_koeficientu(data)
 
     some_var = [i for i in range(0,10)]
 
