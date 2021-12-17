@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Vysledky regrese</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+  <p><a href="{{ url_for('index') }}">Zpet</a></p>
+  <table class="styled-table">
+    <tr>
+        <th>Promenna</th>
+        <th>Koeficient</th>
+        <th>Chyba odhadu</th>
+        <th>Testove kriterium</th>
+        <th>p hodnota</th>
+    </tr>
+    {% set n = regrese['koeficienty_nazvy']|length %}
+    {% for i in range(n) %}
+        <tr>
+            <td>{{ regrese['koeficienty_nazvy'][i] }}</td>
+            <td>{{ '%0.3f' % regrese['koeficienty'][i] | float }}</td>
+            <td>{{ '%0.3f' % regrese['sd_koeficienty'][i] | float }}</td>
+            <td>{{ '%0.3f' % regrese['testova_kriteria'][i] | float}}</td>
+            {% set pval = regrese['phodnoty'][i] %}
+            
+            {% if pval <= 0.05 %}
+                <td style="color:#00FF00; font-weight:bold">{{ '%0.3f' % regrese['phodnoty'][i] | float}}</td>
+            {% else %}
+                <td style="color:#ff0000; font-weight:bold">{{ '%0.3f' % regrese['phodnoty'][i] | float}}</td>
+            {% endif %}
+
+        </tr>
+    {% endfor %}
+  </table>
+
+  <p>Koeficient determinace je roven {{ '%0.3f' % rsquares['RSquare'] | float }} % 
+      a adjustovany koeficient determinace, ktery zohlednuje pocet regresoru v modelu je {{ '%0.3f' % rsquares['AdjRSquare'] | float }} %.</p>
+
+  <p><span class="redText">Cervene</span> je zvyraznena p hodnota > 0.05 a <span class="greenText">zelene</span> p hodnota &#8804; 0.05.</p>
+
+  </body>
+</html>

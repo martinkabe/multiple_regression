@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Regresni Analyza</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+    <h1>Regresni Diagnostika</h1>
+    <p>Prosim, vlozte <b>csv</b> soubor, ve kterem bude v prvnim sloupci zavisle promenna a za ni budou nasledovat nezavisle promenne!</p>
+    <form method="POST" action="{{url_for('vysledky')}}" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+      <p><input type="submit" value="Odesli"></p>
+      {% if msg %}  
+        <p class="redText"><strong>Error</strong>: {{ msg }}</p>  
+      {% endif %}  
+    </form>
+    <p><a href="{{ url_for('documentation') }}">Dokumentace</a></p>
+  </body>
+</html>
