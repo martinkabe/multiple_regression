@@ -6,7 +6,6 @@ from RegresniAnalyza import Regrese as ra
 from markdown import markdown
 
 
-
 app = Flask(__name__)
 app.run(debug=True)
 
@@ -58,5 +57,3 @@ def documentation():
     md_text = readme_file.read()
     md_text_html = markdown(md_text)
     return render_template('documentation.html', md_text=md_text_html)
-
-

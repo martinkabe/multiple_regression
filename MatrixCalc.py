@@ -108,13 +108,6 @@ class MatrixCustom:
     @classmethod
     def shodnost_matic(cls, mat1: Matice, mat2: Matice, tol=None) -> bool:
 
-        """
-        Zjisti shodu dvou matic a vrati logickou hodnotu
-            :param mat1: Prvni matice typu Matice
-            :param mat2: Druha matice typu Matice
-            :return: Logicka hodnota True/False
-        """
-
         dim_mat1 = mat1.dimenze
         dim_mat2 = mat2.dimenze
 
@@ -142,15 +135,7 @@ class MatrixCustom:
         if not any(isinstance(el, list) for el in mat.data):
            raise TypeError(f"Matice neni zadana jako List[List].")
 
-        mat_dim = mat.dimenze
-
-        matice_deep = []
-        for r in range(mat_dim[0]):
-            radek_list = []
-            for sl in range(mat_dim[1]):
-                radek_list.append(mat.data[r][sl])
-            matice_deep.append(radek_list)
-        return Matice(matice_deep)
+        return Matice(mat.data)
     
     @classmethod
     def nulova_matice(cls, radky: int, sloupce: int) -> Matice:
