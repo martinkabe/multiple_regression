@@ -8,6 +8,8 @@ Uzivatel nejprve nahraje *.csv soubor, stiskem tlacitka 'Odesli' bude presmerova
 
 Povolen je pouze *.csv soubor, kde v prvnim sloupci bude zavisle promenna, ostatni sloupce jsou zastoupeny nezavisle promennyma. V prvnim radku je samozrejme hlavicka s nazvy sloupcu. Vzorove soubory jsou v /Scripts/test/, soubory test1.csv a test2.csv.
 
+**Uzivatel dale bude mit moznost zadat vlastni hodnoty pro nezavisle promenne, ze kterych bude nasledne vypoctena predikce pro zavisle promennou.**
+
 ## Pouzite tridy
 
 ### Trida Matice v souboru Matrix.py
