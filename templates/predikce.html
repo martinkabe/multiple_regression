@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Predikce</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+    <p><a href="{{ url_for('index') }}">Zpet</a></p>
+    {% if out is defined and pred is defined %}
+        <h1>Predikce pro zadane vstupy</h1>
+        <p>Rovnice predikce pro zavisle promennou je:</p>
+        <p>{{ out }} = {{ pred }}.</p>
+    {% else %}
+        <p class="redText">{{ msg }}</p>
+    {% endif %}
+  </body>
+</html>
