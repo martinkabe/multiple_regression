@@ -10,7 +10,7 @@ Povolen je pouze *.csv soubor, kde v prvnim sloupci bude zavisle promenna, ostat
 
 **Uzivatel dale bude mit moznost zadat vlastni hodnoty pro nezavisle promenne, ze kterych bude nasledne vypoctena predikce pro zavisle promennou.**
 
-![Uploading regresni_analyza.gif…]()
+![regresni_analyza](https://user-images.githubusercontent.com/7679763/146684861-900975ce-f1a6-4e52-ba1d-c8085fdb65a5.gif)
 
 ## Pouzite tridy
 
