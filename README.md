@@ -6,7 +6,9 @@ Tento program slouzi k vypoctu odhadu koeficientu regresni primky/roviny/nadrovi
 
 Uzivatel nejprve nahraje *.csv soubor, stiskem tlacitka 'Odesli' bude presmerovan na stranku s regresni diagnostikou.
 
-Povolen je pouze *.csv soubor, kde v prvnim sloupci bude zavisle promenna, ostatni sloupce jsou zastoupeny nezavisle promennyma. V prvnim radku je samozrejme hlavicka s nazvy sloupcu. Vzorove soubory jsou v /Scripts/test/, soubory test1.csv a test2.csv.
+Povolen je pouze *.csv soubor, kde v prvnim sloupci bude zavisle promenna, ostatni sloupce jsou zastoupeny nezavisle promennyma. V prvnim radku je samozrejme hlavicka s nazvy sloupcu. 
+
+<ins>Vzorove soubory</ins> jsou v **/Scripts/test/** adresari, soubory jsou pojmenovany jako **test1.csv** a **test2.csv**.
 
 **Uzivatel dale bude mit moznost zadat vlastni hodnoty pro nezavisle promenne, ze kterych bude nasledne vypoctena predikce pro zavisle promennou.**
 
