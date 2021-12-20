@@ -11,7 +11,7 @@ Nasledujici prikazy doporucuji spustit napriklad v [Git Bash](https://github.com
 
 Pokud v IDE neuvidite (.venv) nad cestou k projektu, doporucuji jeste jednou z VS Code terminalu spustit prikaz [source .venv/Scripts/activate].
 
-![image](https://user-images.githubusercontent.com/7679763/146745257-556c6d5f-58ba-4bec-83e2-145e695bdbd9.png)
+![image](https://user-images.githubusercontent.com/7679763/146746264-0606e1ca-e421-4a5d-a589-ae0996f7e592.png)
 
 ## Popis programu
 
