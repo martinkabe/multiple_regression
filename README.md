@@ -13,6 +13,8 @@ Pokud v IDE neuvidite (.venv) nad cestou k projektu, doporucuji jeste jednou z V
 
 ![image](https://user-images.githubusercontent.com/7679763/146746264-0606e1ca-e421-4a5d-a589-ae0996f7e592.png)
 
+* flask run    -> Spusti aplikaci lokalne na portu 5000 [Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)], takze uz staci jen ctrl+click na link.
+
 ## Popis programu
 
 Tento program slouzi k vypoctu odhadu koeficientu regresni primky/roviny/nadroviny, jejich smerodatnych chyb, testovych kriterii a p hodnot.
