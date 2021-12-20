@@ -1,0 +1,1 @@
+Tato slozka slouzi k docasnemu ukladani *.csv souboru pri otevirani.
