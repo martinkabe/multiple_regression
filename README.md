@@ -1,5 +1,18 @@
 # Dokumentace
 
+## Lokalni spusteni aplikace
+
+Nasledujici prikazy doporucuji spustit napriklad v [Git Bash](https://github.com/git-for-windows/git/releases/download/v2.34.1.windows.1/Git-2.34.1-64-bit.exe).
+
+* cd Cesta/do/lokalniho/adresare
+* git clone https://github.com/martinkabe/multiple_regression.git
+* source .venv/Scripts/activate    -> Abychom se vyhnuli jakymkoli problemum s nekompatibilitou balicku
+* code .    -> Aplikaci otevre v VS Code
+
+Pokud v IDE neuvidite (.venv) nad cestou k projektu, doporucuji jeste jednou z VS Code terminalu spustit prikaz [source .venv/Scripts/activate].
+
+![image](https://user-images.githubusercontent.com/7679763/146745257-556c6d5f-58ba-4bec-83e2-145e695bdbd9.png)
+
 ## Popis programu
 
 Tento program slouzi k vypoctu odhadu koeficientu regresni primky/roviny/nadroviny, jejich smerodatnych chyb, testovych kriterii a p hodnot.
