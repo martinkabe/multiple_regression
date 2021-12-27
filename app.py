@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, flash, redirect, url_for
+from flask import Flask, render_template, request, session
 from os.path import join, dirname, realpath
 from DataReader import NactiData as nd
 from RegresniAnalyza import Regrese as ra
@@ -7,7 +7,7 @@ from markdown import markdown
 
 
 app = Flask(__name__)
-app.run(debug=True)
+app.config.from_object(__name__)
 
 app.secret_key = 'regresnianalyza'
 
@@ -91,3 +91,7 @@ def predikce():
             
         return render_template('predikce.html', out=out_str, pred=round(pred, 3))
     return render_template('predikce.html', msg="Spatne zadane vstupy, zadna predikce nebude!")
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
