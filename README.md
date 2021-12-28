@@ -19,7 +19,7 @@ Pokud v IDE neuvidite (.venv) nad cestou k projektu, doporucuji jeste jednou z V
 
 ``pip install -r requirements.txt``
 
-* Live verze je umistena na [Heroku serveru](https://multiregrese.herokuapp.com/ target="_blank"). Soubory pro *'hrani'* mohou byt pouzity z **/Scripts/test/** adresare. Soubory jsou pojmenovany jako **test1.csv** a **test2.csv**.
+* Live verze je umistena na [Heroku serveru](https://multiregrese.herokuapp.com/). Soubory pro *'hrani'* mohou byt pouzity z **/Scripts/test/** adresare. Soubory jsou pojmenovany jako **test1.csv** a **test2.csv**.
 
 ## Popis programu
 
