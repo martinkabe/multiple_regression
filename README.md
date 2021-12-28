@@ -15,6 +15,10 @@ Pokud v IDE neuvidite (.venv) nad cestou k projektu, doporucuji jeste jednou z V
 
 * flask run    -> Tento prikaz z terminalu VS Code spusti aplikaci lokalne na portu 5000 [Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)], takze uz staci jen ctrl+click na link.
 
+* Pokud by byl jakykoli problem se spustenim aplikace, tak staci jen spustit nasledujici prikaz:
+
+``pip install -r requirements.txt``
+
 * Live verze je umistena na Heroku serveru: https://multiregrese.herokuapp.com/, soubory pro 'hrani' mohou byt pouzity z **/Scripts/test/** adresare. Soubory jsou pojmenovany jako **test1.csv** a **test2.csv**.
 
 ## Popis programu
