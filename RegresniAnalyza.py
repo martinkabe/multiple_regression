@@ -30,31 +30,38 @@ class Regrese:
     
     @classmethod
     def vypocti_odhady_koeficientu(cls, data: Matice) -> Matice:
-        y, X = cls.oddel_prediktory(data)
+        try:
+            y, X = cls.oddel_prediktory(data)
 
-        XT = mc.transpozice(X)
-        XTX = mc.vynasob(XT, X)
-        XTX_inv = mc.inverzni_matice(XTX, 2)
+            XT = mc.transpozice(X)
+            XTX = mc.vynasob(XT, X)
+            XTX_inv = mc.inverzni_matice(XTX, 2)
 
-        XTy = mc.vynasob(XT, y)
-        b = mc.vynasob(XTX_inv, XTy)
-        b.sloupce = koef_nazvy = X.sloupce
+            XTy = mc.vynasob(XT, y)
+            b = mc.vynasob(XTX_inv, XTy)
+            b.sloupce = koef_nazvy = X.sloupce
 
-        rsquares = cls.r_squares(y, X, b)
+            if (X.dimenze[0]-1) <= b.dimenze[0]:
+                raise ArithmeticError(f"Pocet pozorovani je jen {X.dimenze[0]} a pocet regresnich koeficientu je {b.dimenze[0]}. Je potreba pridat vice pozorovani!")
 
-        y1 = mc.transpozice(mc.odecti(y, mc.vynasob(X, b)))
-        y2 = mc.odecti(y, mc.vynasob(X, b))
-        dSigmaSq = Matice(mc.vynasob(y1, y2).data[0][0] / (X.dimenze[0] - b.dimenze[0]))
-        dSigmaSq_XTX_inv = mc.vynasob(dSigmaSq, XTX_inv)
+            rsquares = cls.r_squares(y, X, b)
 
-        sd_koeficienty = [math.sqrt(i) for i in mc.extrakce_diagonaly(dSigmaSq_XTX_inv)]
-        b_odhady = [item for sublist in b.data for item in sublist]
+            y1 = mc.transpozice(mc.odecti(y, mc.vynasob(X, b)))
+            y2 = mc.odecti(y, mc.vynasob(X, b))
+            
+            dSigmaSq = Matice(mc.vynasob(y1, y2).data[0][0] / (X.dimenze[0] - b.dimenze[0]))
+            dSigmaSq_XTX_inv = mc.vynasob(dSigmaSq, XTX_inv)
 
-        testova_kriteria = [i / j for i, j in zip(b_odhady, sd_koeficienty)]
+            sd_koeficienty = [math.sqrt(i) for i in mc.extrakce_diagonaly(dSigmaSq_XTX_inv)]
+            b_odhady = [item for sublist in b.data for item in sublist]
 
-        p_hodnoty = [2 * (1 - t.cdf(abs(tk), X.dimenze[0] - b.dimenze[0])) for tk in testova_kriteria]
+            testova_kriteria = [i / j for i, j in zip(b_odhady, sd_koeficienty)]
 
-        return(koef_nazvy, b_odhady, sd_koeficienty, testova_kriteria, p_hodnoty, rsquares)
+            p_hodnoty = [2 * (1 - t.cdf(abs(tk), X.dimenze[0] - b.dimenze[0])) for tk in testova_kriteria]
+
+            return(koef_nazvy, b_odhady, sd_koeficienty, testova_kriteria, p_hodnoty, rsquares)
+        except Exception as e:
+            raise Exception("Trida 'Regrese' -> metoda 'vypocti_odhady_koeficientu': " + str(e))
 
     @classmethod
     def r_squares(cls, y: Matice, X: Matice, b: Matice) -> Tuple:
